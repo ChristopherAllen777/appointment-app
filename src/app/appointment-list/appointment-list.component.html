@@ -22,10 +22,24 @@
 
     <h2 class="text-center mt-5">Appointments</h2>
     <ul class="list-group mt-3">
-        <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let appointment of appointments; index as i">
-            {{appointment.title}} {{appointment.date | date:'dd.MM.yyyy'}}
-            <button class="btn btn-danger" (click)="deleteAppointment(i)">Delete</button>
-        </li>
+        <table class="table">
+            <thead>
+                <tr>
+                  <th scope="col">Unique ID</th>
+                  <th scope="col">Date</th>
+                  <th scope="col">Description</th>
+                  <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let appointment of appointments; index as i">
+                    <th scope="row">{{appointment.id}}</th>
+                    <td>{{appointment.date}}</td>
+                    <td>{{appointment.title}}</td>
+                    <td><button class="btn btn-danger" (click)="deleteAppointment(i)">Delete</button></td>
+                </tr>
+            </tbody>
+        </table>
     </ul>
 </div>
 
